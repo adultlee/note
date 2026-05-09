@@ -72,6 +72,14 @@
   - 한 줄 요약: Map 하나로 IP당 요청 횟수를 카운팅, 단일 IP 봇 기준 어뷰징 속도 97% 감소 (무제한 → 1시간 3회)
   - 출발점: `/api/auth/signup`에 제한 없어 계정 대량 생성 → 포인트 어뷰징 경로 발견
 
+- **2026-05-09** [#개념정리 #css #성능튜닝 #web-vitals] [CSS 렌더링 파이프라인 — Reflow, Repaint, Composite & CLS](./css-렌더링파이프라인-reflow-cls/index.md)
+  - 한 줄 요약: `max-height` 트랜지션은 매 프레임 Reflow를 유발하고, `translateY`는 Composite 단계만 타서 GPU가 처리한다. CLS = 영향 분율 × 이동 거리 분율, 0.1 이하가 Good
+  - 출발점: max-height transition이 왜 layout shift를 유발하는지, translateY가 왜 부드러운지 브라우저 렌더링 파이프라인 관점에서 탐구
+
+- **2026-05-09** [#개념정리 #성능튜닝 #nextjs #web-vitals] [WebP 이미지 최적화 — 압축률, cwebp -q, Next.js 자동 변환](./webp-이미지-최적화/index.md)
+  - 한 줄 요약: WebP는 JPEG 대비 동일 화질 기준 25~34% 작다 (Google 공식). cwebp -q 80은 0~100 중 웹 권장 범위(75~85). Next.js Image는 설정 없이 WebP 자동 변환
+  - 출발점: 이미지 최적화 시 WebP 실제 효과와 Next.js 자동 지원 여부 확인
+
 - **2026-05-08** [#개념정리 #tanstack-query #nextjs #성능튜닝] [SWR 패턴과 TanStack Query staleTime](./SWR-패턴과-TanStack-Query-staleTime/index.md)
   - 한 줄 요약: SWR은 캐시된 것 먼저 보여주고 백그라운드 갱신. HTTP 헤더(CDN)와 TanStack Query(클라이언트) 두 레이어에 각각 존재하며 독립적으로 작동
   - 출발점: revalidate 튜닝이 초기 로딩에 효과 없다는 걸 확인하면서 SWR 개념 정리
