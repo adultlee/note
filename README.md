@@ -4,6 +4,10 @@
 
 ---
 
+- **2026-05-14** [#개념정리 #supabase #oauth #nextjs] [Supabase + Google OAuth 두 단계 콜백 구조](./supabase-google-oauth-인증-흐름/index.md)
+  - 한 줄 요약: Supabase로 Google 로그인 붙일 땐 콜백이 두 번(Google→Supabase, Supabase→앱) — 그래서 redirect URI도 두 곳에 따로 등록해야 한다
+  - 출발점: 우문현답에 소셜 로그인 도입, `redirect_uri_mismatch` / `missing_code` / `Unable to exchange external code` 에러 시퀀스
+
 - **2026-05-07** [#개념정리 #elo #lck] [ELO 알고리즘 기초와 K팩터](./ELO-알고리즘-기초와-K팩터/index.md)
   - 한 줄 요약: ELO는 예상 승률 대비 실제 결과의 차이만큼 레이팅을 업데이트하고, K팩터가 그 폭을 조절한다. 국제전 K×3은 리그 간 첫 교차 정보의 정보량을 반영.
   - 출발점: FanClash ELO 도입 및 국내전/국제전 K팩터 분리 설계
@@ -91,3 +95,7 @@
 - **2026-05-08** [#도구습득 #nextjs #react #claude-code] [공유카드 컴팩트 디자인 & Claude 헤드리스 캡처](./공유카드-컴팩트-디자인-및-Claude-헤드리스-캡처/index.md)
   - 한 줄 요약: Claude는 Chrome `--headless=new`로 정적 HTML을 렌더링해 PNG를 찍고 멀티모달로 확인. `/tmp`는 임시라 영구 보존은 `docs/notes-assets/`에 복사해야 함
   - 출발점: 커뮤니티 공유용 경기 리포트 카드 컴팩트 디자인 작업 + 캡처 방식 궁금증
+
+- **2026-05-12** [#원인분석 #nextjs #react] [Next.js Hydration Mismatch와 suppressHydrationWarning](./nextjs-hydration-mismatch-suppressHydrationWarning/index.md)
+  - 한 줄 요약: Next.js dev 도구가 서버 측에서 `<head>`에 `data-locator-*` 속성을 주입 → 클라이언트와 불일치 → `<head suppressHydrationWarning>`으로 해결. 이 prop은 1 depth만 적용되므로 `<html>`에만 추가하면 `<head>`에는 전파되지 않음
+  - 출발점: 우문현답 `layout.tsx` `<head>` 태그 hydration mismatch 경고
